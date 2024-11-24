@@ -24,7 +24,7 @@ jobs:
             test-script: ci/apt-test.sh
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: rake compile & rake test
         run: |
           docker run \

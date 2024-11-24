@@ -93,5 +93,5 @@ else
     if [ $USE_AMZN_EXT -eq 1 ]; then
         echo 'gem "io-console"' > /cmetrics-ruby/Gemfile.local
     fi
-    cd /cmetrics-ruby && gem install bundler --no-document && bundle install && bundle exec rake
+    cd /cmetrics-ruby && gem install bundler -v 2.4.22 --no-document && bundle install && bundle exec rake
 fi

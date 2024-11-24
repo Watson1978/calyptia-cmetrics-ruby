@@ -13,6 +13,4 @@
 /ext/cmetrics/*.a
 /lib/cmetrics/cmetrics.so
 /lib/cmetrics/cmetrics.bundle
-/ext/cmetrics/cmetrics/
-/ext/cmetrics/monkey/
-/ext/cmetrics/mpack/
+ext/cmetrics/
