@@ -13,6 +13,7 @@ jobs:
         ruby-version: '3.0'
     - name: Run the default task
       run: |
+        pacman -Syyu --noconfirm
         cmake --version
         ridk exec bundle install
         ridk exec bundle exec rake
