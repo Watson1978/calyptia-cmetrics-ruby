@@ -13,6 +13,7 @@ jobs:
         ruby-version: '3.0'
     - name: Run the default task
       run: |
+        ridk exec cmake --version
         gem install bundler -v 2.2.26
         ridk exec bundle install
         ridk exec bundle exec rake
