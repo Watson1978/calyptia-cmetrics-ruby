@@ -46,7 +46,7 @@ class BuildCMetrics
     @recipe = MiniPortileCMake.new("cmetrics", @version, **kwargs)
     def @recipe.cmake_compile_flags
       flags = super
-      flags << "-DCMAKE_C_FLAGS='-Wno-incompatible-pointer-types -Wno-format -Wno-error'"
+      flags << "-DCMAKE_C_FLAGS='-Wno-incompatible-pointer-types -Wno-format -Wno-unused-but-set-variable'"
     end
     @checkpoint = ".#{@recipe.name}-#{@recipe.version}.installed"
     @recipe.target = File.join(ROOT, "ports")
@@ -145,7 +145,7 @@ class BuildCMetrics
   end
 end
 
-cmetrics = BuildCMetrics.new("0.5.9", cmake_command: determine_preferred_command("cmake3", "cmake"))
+cmetrics = BuildCMetrics.new("0.5.9", cmake_command: determine_preferred_command("cmake3", "cmake"),  make_command: "make V=1")
 cmetrics.build
 
 libdir = RbConfig::CONFIG["libdir"]
