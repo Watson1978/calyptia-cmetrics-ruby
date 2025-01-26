@@ -18,4 +18,6 @@ jobs:
         gem install bundler -v 2.2.26
         cd /cmetrics
         ridk exec bundle install
-        ridk exec bundle exec rake
+    - name: Debug
+      if: ${{ always() }}
+      uses: mxschmitt/action-tmate@v3
