@@ -13,10 +13,10 @@ jobs:
         ruby-version: '3.0'
     - name: Run the default task
       run: |
-        New-Item -Path /cmetrics -ItemType Junction -Value $PWD.Path
+        New-Item -Path /cm -ItemType Junction -Value $PWD.Path
         ridk exec cmake --version
         gem install bundler -v 2.2.26
-        cd /cmetrics
+        cd /cm
         ridk exec bundle install
     - name: Debug
       if: ${{ always() }}
