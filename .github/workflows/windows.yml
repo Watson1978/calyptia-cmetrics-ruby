@@ -13,9 +13,7 @@ jobs:
         ruby-version: '3.0'
     - name: Run the default task
       run: |
-        $CurrentDir = Get-Location
-        cd /
-        move $CurrentDir "/cm"
+        Copy-Item -Path $PWD.Path -Destination /cm -Recurse
         cd /cm
         gem install bundler -v 2.2.26
         ridk exec bundle install
