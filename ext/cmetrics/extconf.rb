@@ -47,7 +47,8 @@ class BuildCMetrics
     def @recipe.cmake_compile_flags
       flags = super
       flags << "-DCMAKE_C_FLAGS='-Wno-incompatible-pointer-types -Wno-format -Wno-unused-but-set-variable'"
-      flags << "-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON"
+      flags << "-DCMAKE_VERBOSE_MAKEFILE=ON"
+      flags << "-DCMAKE_OBJECT_PATH_MAX=260"
     end
     @checkpoint = ".#{@recipe.name}-#{@recipe.version}.installed"
     @recipe.target = File.join(ROOT, "ports")
