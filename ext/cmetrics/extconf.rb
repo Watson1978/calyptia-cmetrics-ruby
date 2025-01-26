@@ -57,6 +57,10 @@ class BuildCMetrics
     }
 
     @otel_proto_recipe = MiniPortileCMake.new("fluent-otel-proto", @fluent_otel_version, **kwargs)
+    def @otel_proto_recipe.cmake_compile_flags
+      flags = super
+      flags << "-DCMAKE_OBJECT_PATH_MAX=1024"
+    end
     @otel_proto_checkpoint = ".#{@otel_proto_recipe.name}-#{@otel_proto_recipe.version}.installed"
     @otel_proto_recipe.target = File.join(ROOT, "ports")
     @otel_proto_recipe.files << {
@@ -65,6 +69,10 @@ class BuildCMetrics
     }
 
     @cfl_recipe = MiniPortileCMake.new("cfl", @cfl_version, **kwargs)
+    def @cfl_recipe.cmake_compile_flags
+      flags = super
+      flags << "-DCMAKE_OBJECT_PATH_MAX=1024"
+    end
     @cfl_checkpoint = ".#{@cfl_recipe.name}-#{@cfl_recipe.version}.installed"
     @cfl_recipe.target = File.join(ROOT, "ports")
     @cfl_recipe.files << {
