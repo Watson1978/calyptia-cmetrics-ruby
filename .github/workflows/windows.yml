@@ -16,6 +16,4 @@ jobs:
         ridk exec cmake --version
         gem install bundler -v 2.2.26
         ridk exec bundle install
-    - name: Debug
-      if: ${{ always() }}
-      uses: mxschmitt/action-tmate@v3
+        ridk exec bundle exec rake
