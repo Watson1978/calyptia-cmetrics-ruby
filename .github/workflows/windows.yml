@@ -26,3 +26,6 @@ jobs:
         # Clean up
         cd /
         Remove-Item -Path /cm -Recurse -Force
+      env:
+        # Required to build cmetrics gem with CMake 4.0+
+        CMAKE_POLICY_VERSION_MINIMUM: 3.5
